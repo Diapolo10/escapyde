@@ -1,13 +1,15 @@
 """Main ANSI Escape sequence class"""
 
+from typing import Optional, List
+
 CLEAR = f'\033[0m'
 
 class AnsiEscape:
-    def __init__(self, colour=None):
-        self.sequence = f'\033[{";".join(str(rgb) for rgb in colour)}m'
-        self.string = None
+    def __init__(self, colour: Optional[List[int]] = None):
+        self.sequence: str = f'\033[{";".join(str(rgb) for rgb in colour)}m' if colour is not None else ''
+        self.string: Optional[str] = None
 
-    def __str__(self):
+    def __str__(self) -> str:
         if self.string:
             return self.sequence + self.string + CLEAR
 
@@ -21,4 +23,4 @@ class AnsiEscape:
             raise TypeError(f"Not compatible with type '{other.__class__.__name__}'")
 
     def __ror__(self, other):
-        return self.__or__(other) 
+        return self.__or__(other)
