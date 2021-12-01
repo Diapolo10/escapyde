@@ -68,6 +68,17 @@ First official documentation.
 
 _______________________________________________________________________________
 
+## [0.1.2] - 2021-12-01
+
+This release adds support for arbitrary types; previously `AnsiEscape` only supported strings.
+
+### Changed
+
+- Changed `AnsiEscape` to support any type
+- Updated the localisation files
+
+_______________________________________________________________________________
+
 ## [0.1.1] - 2021-12-01
 
 A hotfix release that fixes a problem in the README example code, and adds a screenshot of the code running.

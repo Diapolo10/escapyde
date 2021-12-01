@@ -21,15 +21,12 @@ class AnsiEscape:
         return ''
 
     def __or__(self, other):
-        if isinstance(other, str):
-            self.string = other
-            return self
-
         if isinstance(other, AnsiEscape):
             self.sequence += other.sequence
             return self
 
-        raise TypeError(f"Not compatible with type '{other.__class__.__name__}'")
+        self.string = str(other)
+        return self
 
     def __ror__(self, other):
         return self.__or__(other)
