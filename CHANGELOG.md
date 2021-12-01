@@ -1,5 +1,5 @@
 
-# IPlib3 Change Log
+# Escapyde Change Log
 
 All notable changes to this project will be documented in this file.
 
