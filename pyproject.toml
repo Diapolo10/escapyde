@@ -1,0 +1,87 @@
+[build-system]
+requires = ['poetry-core>=1.0.0',]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.flake8]
+max-line-length = 120
+extend-ignore = 'E203,'
+max-complexity = 15 # Info: https://en.wikipedia.org/wiki/Cyclomatic_complexity
+per-file-ignores = """\
+# F401: Ignore "unused" imports
+# F403: Ignore star imports
+# F405: Ignore names from star imports
+__init__.py:F401,F403,F405\
+"""
+
+
+[tool.poetry]
+name = 'escapyde'
+version = '0.1.0'
+description = "Yet another ANSI escape sequence library for Python - now modernised!"
+
+authors = ["Lari Liuhamo <lari.liuhamo+pypi@gmail.com>",]
+maintainers = ["Lari Liuhamo <lari.liuhamo+pypi@gmail.com>",]
+
+include = ['CHANGELOG.md', 'LICENSE',]
+license = 'MIT'
+readme = 'README.md'
+
+homepage = 'https://pypi.org/project/escapyde/'
+repository = 'https://github.com/Diapolo10/escapyde'
+documentation = 'https://github.com/Diapolo10/escapyde/tree/main/docs'
+
+keywords = [
+    'ansi',
+    'console',
+    'terminal',
+    'escape',
+    'sequence',
+]
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Information Technology',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Programming Language :: Python :: Implementation :: IronPython',
+    'Programming Language :: Python :: Implementation :: Jython',
+    'Programming Language :: Python :: Implementation :: MicroPython',
+    'Programming Language :: Python :: Implementation :: PyPy',
+    'Programming Language :: Python :: Implementation :: Stackless',
+    'Topic :: Artistic Software',
+    'Topic :: Communications',
+    'Topic :: Software Development :: Libraries',
+    'Topic :: System :: Console Fonts',
+    'Topic :: Terminals',
+    'Typing :: Typed',
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.9.2"
+pylint = "^2.11.1"
+pyproject-flake8 = "^0.0.1a2" # Wrapper to use pyproject.toml as config file
+wheel = "^0.37.0"
+
+
+[tool.poetry.urls]
+"Source code" = 'https://github.com/Diapolo10/escapyde'
+"Tracker" = 'https://github.com/Diapolo10/escapyde/issues'
+"Changelog" = 'https://github.com/Diapolo10/escapyde/blob/main/CHANGELOG.md'
+
+
+[tool.pylint.'MESSAGES CONTROL']
+max-line-length = 120
+disable = []
