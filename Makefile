@@ -9,7 +9,7 @@ MYPY := $(shell command -v mypy 2> /dev/null)
 .DEFAULT_GOAL := help
 
 .PHONY: all
-all: install lint test
+all: install lint
 
 .PHONY: help
 help:
@@ -17,7 +17,6 @@ help:
 	@echo ""
 	@echo "  install     install packages and prepare environment"
 	@echo "  lint        run the code linters"
-	@echo "  test        run all the tests"
 	@echo "  all         install, lint, and test the project"
 	@echo "  clean       remove all temporary files listed in .gitignore"
 	@echo ""
@@ -42,11 +41,6 @@ lint: $(INSTALL_STAMP)
 	@echo "Running Flake8..."; $(POETRY) run pflake8 # This is not a typo
 	@echo "Running Pylint..."; $(POETRY) run pylint $(PYMODULE)
 
-.PHONY: test
-test: $(INSTALL_STAMP)
-    # Configured in pyproject.toml
-	$(POETRY) run pytest
-
 .PHONY: clean
 clean:
     # Delete all files in .gitignore
@@ -66,9 +60,3 @@ flake8:
 pylint:
     # Configured in pyproject.toml
 	$(POETRY) run pylint $(PYMODULE)
-
-.PHONY: tox
-tox: $(INSTALL_STAMP)
-    # Configured in pyproject.toml
-	$(POETRY) run pip install tox-gh-actions
-	$(POETRY) run tox
