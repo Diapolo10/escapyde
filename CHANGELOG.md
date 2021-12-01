@@ -50,7 +50,7 @@ Lorem Ipsum dolor sit amet.
 <!--
 _______________________________________________________________________________
 
-## [0.2.3] - YYYY-MM-DD
+## [0.1.1] - YYYY-MM-DD
 
 First official documentation.
 
@@ -68,7 +68,26 @@ First official documentation.
 
 _______________________________________________________________________________
 
-## [0.1.0] - 2021-05-01
+## [0.1.1] - 2021-12-01
+
+A hotfix release that fixes a problem in the README example code, and adds a screenshot of the code running.
+
+### Added
+
+- Added a screenshot of the example code running in IPython
+
+### Changed
+
+- Updated the localisation files
+
+### Fixed
+
+- Fixed a mistake in the `README.md` example code related to string formatters
+- Fixed the package name in `CHANGELOG.md`
+
+_______________________________________________________________________________
+
+## [0.1.0] - 2021-12-01
 
 This is the beginning of the changelog. Previously made commits have not been
 tracked, and there are no plans to distinguish them. You may consider this
