@@ -26,7 +26,11 @@ from escapyde.examples.text import SKULL
 
 some_text = "Hello, world!"
 
-print(f"I want to print this red: {escapyde.FRED | some_text:r}, and this yellow: {escapyde.FYELLOW | 'Hi!'}.")
+print(f"I want to print this red: {escapyde.FRED | some_text}, and this yellow: {escapyde.FYELLOW | 'Hi!'}.")
 
 print(f"Here's a cyan skull:\n{escapyde.FCYAN | SKULL}")
 ```
+
+As can be seen, the example works perfectly fine:
+
+![A screenshot of the example run on IPython on Windows.](./docs/readme_screenshot.png "Not bad, not bad at all.")
