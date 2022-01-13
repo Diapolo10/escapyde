@@ -1,10 +1,10 @@
 """Main ANSI Escape sequence class"""
 
-from typing import Optional, Iterable
+from typing import Any, Iterable, Optional
 
 __all__ = ('AnsiEscape',)
 
-_CLEAR = '\033[0m'
+_CLEAR: str = '\033[0m'
 
 
 class AnsiEscape:
@@ -20,7 +20,7 @@ class AnsiEscape:
 
         return ''
 
-    def __or__(self, other):
+    def __or__(self, other: Any) -> 'AnsiEscape':
         if isinstance(other, AnsiEscape):
             self.sequence += other.sequence
             return self
@@ -28,5 +28,5 @@ class AnsiEscape:
         self.string = str(other)
         return self
 
-    def __ror__(self, other):
+    def __ror__(self, other: Any) -> 'AnsiEscape':
         return self.__or__(other)
