@@ -68,9 +68,29 @@ First official documentation.
 
 _______________________________________________________________________________
 
+## [0.2.0] - 2022-01-16
+
+This release adds a new function, `escapyde.escape_format`, which can be used
+to format known substrings in a string with ANSI escape sequences. In addition
+the codebase now uses type hints thorought.
+
+The new feature was inspired by [this Reddit thread][Reddit escape format].
+
+### Added
+
+- Added `escapyde.escape_format`
+- Added more type hints for better typing coverage
+
+### Changed
+
+- Updated the localisation files
+
+_______________________________________________________________________________
+
 ## [0.1.2] - 2021-12-01
 
-This release adds support for arbitrary types; previously `AnsiEscape` only supported strings.
+This release adds support for arbitrary types; previously `AnsiEscape` only
+supported strings.
 
 ### Changed
 
@@ -81,7 +101,8 @@ _______________________________________________________________________________
 
 ## [0.1.1] - 2021-12-01
 
-A hotfix release that fixes a problem in the README example code, and adds a screenshot of the code running.
+A hotfix release that fixes a problem in the README example code, and adds a
+screenshot of the code running.
 
 ### Added
 
@@ -126,6 +147,8 @@ the initial commit.
 
 - Fixed an oversight related to chaining ANSI escape sequences
 - Fixed linter issues
+
+[Reddit escape format]: https://www.reddit.com/r/learnpython/comments/rvcg0l/print_colour_in_terminal/hr73v3f/
 
 <!-- markdownlint-configure-file {
     "MD022": false,
