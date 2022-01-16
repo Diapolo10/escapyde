@@ -59,7 +59,12 @@ First official documentation.
 
 ### Changed
 
+- Enhanced changelog formatting
 - Updated the localisation files
+
+### Fixed
+
+- Typos
 
 -->
 
