@@ -72,7 +72,7 @@ _______________________________________________________________________________
 
 This release adds a new function, `escapyde.escape_format`, which can be used
 to format known substrings in a string with ANSI escape sequences. In addition
-the codebase now uses type hints thorought.
+the codebase now uses type hints thorough.
 
 The new feature was inspired by [this Reddit thread][Reddit escape format].
 
