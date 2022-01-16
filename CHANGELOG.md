@@ -1,10 +1,9 @@
-
-# Escapyde Change Log
+# Escapyde Changelog
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [CHANGELOG.md](http://changelog.md/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [CHANGELOG.md][Changelog]
+and this project adheres to [Semantic Versioning][SemVer].
 
 <!-- 
 TEMPLATE
@@ -50,19 +49,17 @@ Lorem Ipsum dolor sit amet.
 <!--
 _______________________________________________________________________________
 
-## [0.1.1] - YYYY-MM-DD
+## [0.2.1] - YYYY-MM-DD
 
 First official documentation.
 
 ### Added
 
 - Documentation
-- Now using specific versions for the dependencies
 
 ### Changed
 
-- Changed the filename of `deploy.yml` to `pypi_deploy.yml` to get rid of a YAML validator complaint
-- Updated dependencies
+- Updated the localisation files
 
 -->
 
@@ -148,7 +145,9 @@ the initial commit.
 - Fixed an oversight related to chaining ANSI escape sequences
 - Fixed linter issues
 
+[Changelog]: http://changelog.md/
 [Reddit escape format]: https://www.reddit.com/r/learnpython/comments/rvcg0l/print_colour_in_terminal/hr73v3f/
+[SemVer]: http://semver.org/
 
 <!-- markdownlint-configure-file {
     "MD022": false,
