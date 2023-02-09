@@ -17,7 +17,7 @@ __init__.py:F401,F403,F405\
 
 [tool.poetry]
 name = 'escapyde'
-version = '0.2.0'
+version = '0.2.1'
 description = "Yet another ANSI escape sequence library for Python - now modernised!"
 
 authors = ["Lari Liuhamo <lari.liuhamo+pypi@gmail.com>",]
@@ -45,7 +45,6 @@ classifiers = [
     'Intended Audience :: Information Technology',
     'License :: OSI Approved :: MIT License',
     'Operating System :: OS Independent',
-    'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
@@ -66,14 +65,13 @@ classifiers = [
 
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = ">=3.7.2,<4.0"
 
 
 [tool.poetry.dev-dependencies]
-flake8 = "^3.9.2"
-pylint = "^2.11.1"
-pyproject-flake8 = "^0.0.1a2" # Wrapper to use pyproject.toml as config file
-wheel = "^0.37.0"
+flake8 = '^5.0.4'
+pylint = '^2.16.1'
+pyproject-flake8 = '^5.0.4'
 
 
 [tool.poetry.urls]

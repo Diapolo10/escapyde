@@ -49,24 +49,39 @@ Lorem Ipsum dolor sit amet.
 <!--
 _______________________________________________________________________________
 
-## [0.2.1] - YYYY-MM-DD
+## [0.2.1] - 2023-02-09
 
-First official documentation.
+Updated metadata files, workflows, and dependencies.
 
 ### Added
 
-- Documentation
+- Added a whole bunch of new workflows
+- Added Dependabot auto-updates
+- Added a pull request template
 
 ### Changed
 
-- Enhanced changelog formatting
-- Updated the localisation files
-
-### Fixed
-
-- Typos
+- Updated dependencies
+- Updated some metadata
 
 -->
+
+_______________________________________________________________________________
+
+## [0.2.1] - 2023-02-09
+
+Updated metadata files, workflows, and dependencies.
+
+### Added
+
+- Added a whole bunch of new workflows
+- Added Dependabot auto-updates
+- Added a pull request template
+
+### Changed
+
+- Updated dependencies
+- Updated some metadata
 
 _______________________________________________________________________________
 
