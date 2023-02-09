@@ -1,10 +1,9 @@
-
-# Escapyde Change Log
+# Escapyde Changelog
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [CHANGELOG.md](http://changelog.md/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [CHANGELOG.md][Changelog]
+and this project adheres to [Semantic Versioning][SemVer].
 
 <!-- 
 TEMPLATE
@@ -50,21 +49,39 @@ Lorem Ipsum dolor sit amet.
 <!--
 _______________________________________________________________________________
 
-## [0.1.1] - YYYY-MM-DD
+## [0.2.1] - 2023-02-09
 
-First official documentation.
+Updated metadata files, workflows, and dependencies.
 
 ### Added
 
-- Documentation
-- Now using specific versions for the dependencies
+- Added a whole bunch of new workflows
+- Added Dependabot auto-updates
+- Added a pull request template
 
 ### Changed
 
-- Changed the filename of `deploy.yml` to `pypi_deploy.yml` to get rid of a YAML validator complaint
 - Updated dependencies
+- Updated some metadata
 
 -->
+
+_______________________________________________________________________________
+
+## [0.2.1] - 2023-02-09
+
+Updated metadata files, workflows, and dependencies.
+
+### Added
+
+- Added a whole bunch of new workflows
+- Added Dependabot auto-updates
+- Added a pull request template
+
+### Changed
+
+- Updated dependencies
+- Updated some metadata
 
 _______________________________________________________________________________
 
@@ -72,7 +89,7 @@ _______________________________________________________________________________
 
 This release adds a new function, `escapyde.escape_format`, which can be used
 to format known substrings in a string with ANSI escape sequences. In addition
-the codebase now uses type hints thorought.
+the codebase now uses type hints thorough.
 
 The new feature was inspired by [this Reddit thread][Reddit escape format].
 
@@ -148,7 +165,9 @@ the initial commit.
 - Fixed an oversight related to chaining ANSI escape sequences
 - Fixed linter issues
 
+[Changelog]: http://changelog.md/
 [Reddit escape format]: https://www.reddit.com/r/learnpython/comments/rvcg0l/print_colour_in_terminal/hr73v3f/
+[SemVer]: http://semver.org/
 
 <!-- markdownlint-configure-file {
     "MD022": false,
