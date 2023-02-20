@@ -6,11 +6,11 @@ on: [ push ]
 
 jobs:
   pylint:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
     - name: Set up Python 3.9
       uses: actions/setup-python@v4
@@ -28,3 +28,7 @@ jobs:
     - name: Analyse the code with pylint
       run: |
         poetry run pylint escapyde --fail-under 9
+
+    - name: Analyse the automated tests with pylint
+      run: |
+        poetry run pylint tests --fail-under 9
