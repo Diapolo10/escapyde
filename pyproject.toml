@@ -70,7 +70,7 @@ python = ">=3.7.2,<4.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = '^5.0.4'
-pylint = '^2.16.1'
+pylint = '^2.16.2'
 pyproject-flake8 = '^5.0.4'
 
 
