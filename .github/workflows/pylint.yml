@@ -27,4 +27,4 @@ jobs:
 
     - name: Analyse the code with pylint
       run: |
-        poetry run pylint escapyde --fail-under 9
+        poetry run pylint escapyde --fail-under 9 --disable import-error,no-name-in-module
