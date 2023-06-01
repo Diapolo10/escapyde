@@ -4,7 +4,7 @@ Yet another ANSI escape sequence library for Python - now modernised!
 
 ## Installation
 
-The package is readily available on PyPI. There are no dependencies, but Python 3.6 or newer is required.
+The package is readily available on PyPI. There are no dependencies, but Python 3.9 or newer is required.
 
 On Windows:
 

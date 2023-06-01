@@ -1,4 +1,4 @@
 """A library for simplifying ANSI escape sequences in Python"""
 
-from .ansi import *
-from .colours import *
+from escapyde.ansi import *
+from escapyde.colours import *

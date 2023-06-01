@@ -1,8 +1,8 @@
 """Sequences for colours and text formatting"""
 
-from typing import Dict, Iterable
+from collections.abc import Iterable
 
-from .ansi import AnsiEscape
+from escapyde.ansi import AnsiEscape
 
 __all__ = (
     'FBLACK', 'FRED', 'FGREEN', 'FYELLOW',
@@ -12,7 +12,7 @@ __all__ = (
     'CLEAR',
 )
 
-sequence_table: Dict[str, Iterable[int]] = {
+sequence_table: dict[str, Iterable[int]] = {
     # Dark colours
 
     # Foreground
