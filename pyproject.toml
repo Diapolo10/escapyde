@@ -5,7 +5,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = 'escapyde'
-version = '0.2.1'
+version = '0.2.2'
 description = "Yet another ANSI escape sequence library for Python - now modernised!"
 
 authors = ["Lari Liuhamo <lari.liuhamo+pypi@gmail.com>",]

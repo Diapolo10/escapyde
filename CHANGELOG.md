@@ -49,22 +49,35 @@ Lorem Ipsum dolor sit amet.
 <!--
 _______________________________________________________________________________
 
-## [0.2.1] - 2023-02-09
+## [0.2.2] - 2023-06-01
 
-Updated metadata files, workflows, and dependencies.
+Updated dependencies, and added `py.typed` to show the package
+is type-hinted.
 
 ### Added
 
-- Added a whole bunch of new workflows
-- Added Dependabot auto-updates
-- Added a pull request template
+- Added `py.typed`
 
 ### Changed
 
 - Updated dependencies
-- Updated some metadata
 
 -->
+
+_______________________________________________________________________________
+
+## [0.2.2] - 2023-06-01
+
+Updated dependencies, and added `py.typed` to show the package
+is type-hinted.
+
+### Added
+
+- Added `py.typed`
+
+### Changed
+
+- Updated dependencies
 
 _______________________________________________________________________________
 
