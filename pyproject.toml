@@ -11,7 +11,7 @@ description = "Yet another ANSI escape sequence library for Python - now moderni
 authors = ["Lari Liuhamo <lari.liuhamo+pypi@gmail.com>",]
 maintainers = ["Lari Liuhamo <lari.liuhamo+pypi@gmail.com>",]
 
-include = ['CHANGELOG.md', 'LICENSE',]
+include = ['CHANGELOG.md', 'LICENSE', 'py.typed',]
 license = 'MIT'
 readme = 'README.md'
 
@@ -35,9 +35,9 @@ classifiers = [
     'Intended Audience :: Information Technology',
     'License :: OSI Approved :: MIT License',
     'Operating System :: OS Independent',
-    'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
     'Programming Language :: Python :: Implementation :: CPython',
     'Programming Language :: Python :: Implementation :: IronPython',
     'Programming Language :: Python :: Implementation :: Jython',
@@ -66,13 +66,39 @@ optional = true
 
 
 [tool.poetry.group.linters.dependencies]
-ruff = '>=0.0.270,<0.0.272'
+ruff = '^0.0.270'
+
+
+[tool.poetry.group.tests]
+optional = true
+
+
+[tool.poetry.group.tests.dependencies]
+pytest = '^7.3.1'
+pytest-cov = '^4.1.0'
+tox = '^4.6.0'
+tox-gh-actions = '^3.1.1'
 
 
 [tool.poetry.urls]
 "Source code" = 'https://github.com/Diapolo10/escapyde'
 "Tracker" = 'https://github.com/Diapolo10/escapyde/issues'
 "Changelog" = 'https://github.com/Diapolo10/escapyde/blob/main/CHANGELOG.md'
+
+
+[tool.pytest.ini_options]
+minversion = '6.0'
+addopts = """
+--doctest-modules \
+--cov=./ \
+--cov-append \
+--cov-report html:tests/reports/coverage-html \
+--cov-report xml:tests/reports/coverage.xml \
+--ignore=docs/
+"""
+testpaths = [
+    'tests',
+]
 
 
 [tool.ruff]
@@ -130,7 +156,7 @@ max-complexity = 10
 [tool.ruff.per-file-ignores]
 # https://beta.ruff.rs/docs/rules/
 '__init__.py' = ['F401','F403','F405',]
-'tests/*' = ['ARG', 'S101',]
+'tests/*' = ['ANN001', 'ANN201', 'ARG', 'INP001', 'S101',]
 '**/ansi.py' = ['ANN401',]
 
 
@@ -143,3 +169,33 @@ max-statements = 80
 
 [tool.ruff.flake8-tidy-imports]
 ban-relative-imports = "all"
+
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py39, py310, py311, pypy3
+isolated_build = True
+
+[gh-actions]
+python =
+    3.9: py39
+    3.10: py310
+    3.11: py311
+    pypy-3.9: pypy3
+
+[gh-actions:env]
+PLATFORM =
+    ubuntu-latest: linux
+    macos-latest: macos
+    windows-latest: windows
+
+[testenv]
+passenv = GITHUB_*
+deps =
+    coverage[toml]
+    pytest
+    pytest-cov
+commands =
+    coverage run -m pytest
+"""

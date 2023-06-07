@@ -49,20 +49,51 @@ Lorem Ipsum dolor sit amet.
 <!--
 _______________________________________________________________________________
 
-## [0.2.2] - 2023-06-01
+## [0.2.3] - 2023-06-07
 
-Updated dependencies, and added `py.typed` to show the package
-is type-hinted.
+Remembered to include `py.typed` in the package, and fixed a bug with the
+`escape_format` function. Furthermore, identified a major bug with chained
+escapes, which will be fixed in the next major update as it may require breaking
+changes.
 
 ### Added
 
-- Added `py.typed`
+- Added `py.typed` - this time for real
+- Added unit tests
 
 ### Changed
 
 - Updated dependencies
 
+### Fixed
+
+- Fixed a bug where `escape_format` was forcing any replaced substrings to be
+  lowercase. The casing in the output now matches the input.
+
 -->
+
+_______________________________________________________________________________
+
+## [0.2.3] - 2023-06-07
+
+Remembered to include `py.typed` in the package, and fixed a bug with the
+`escape_format` function. Furthermore, identified a major bug with chained
+escapes, which will be fixed in the next major update as it may require breaking
+changes.
+
+### Added
+
+- Added `py.typed` - this time for real
+- Added unit tests
+
+### Changed
+
+- Updated dependencies
+
+### Fixed
+
+- Fixed a bug where `escape_format` was forcing any replaced substrings to be
+  lowercase. The casing in the output now matches the input.
 
 _______________________________________________________________________________
 

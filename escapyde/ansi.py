@@ -74,11 +74,14 @@ def escape_format(string: str, escape_map: dict[str, AnsiEscape], case_sensitive
 
             for idx, word in enumerate(words):
 
-                if not case_sensitive:
-                    substring = substring.lower()  # noqa: PLW2901
-                    word = word.lower()  # noqa: PLW2901
+                temp_word = word
+                temp_substring = substring
 
-                if word.startswith(substring):
+                if not case_sensitive:
+                    temp_substring = temp_substring.lower()
+                    temp_word = temp_word.lower()
+
+                if temp_word.startswith(temp_substring):
                     words[idx] = f'{escape | word[:len(substring)]}{word[len(substring):]}'
 
         lines[line_idx] = ' '.join(words)
