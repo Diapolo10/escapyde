@@ -49,29 +49,13 @@ Lorem Ipsum dolor sit amet.
 <!--
 _______________________________________________________________________________
 
-## [1.0.0] - 2023-06-08
+## [1.0.1] - 2023-06-08
 
-Completely overhauled the `escapyde.ansi.AnsiEscape` class. This release breaks
-backwards compatibility with manual use of the class, however use of the
-provided colour shortcuts is not affected. `README.md` has also been updated.
-
-### Added
-
-- Added support for chaining formatting options
-- Added new validators
-- Added new examples to `README.md`, with screenshots
-- New unit tests
-- `SECURITY.md`
-
-### Changed
-
-- Updated dependencies
-- Moved screenshots to an asset directory
-- `escapyde.ansi.AnsiEscape` now works a lot differently
+Fixed an issue with the Ruff workflow.
 
 ### Fixed
 
-- Fixed chaining escape sequences
+- Fixed Ruff running on tag releases
 
 -->
 
