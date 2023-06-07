@@ -49,28 +49,57 @@ Lorem Ipsum dolor sit amet.
 <!--
 _______________________________________________________________________________
 
-## [0.2.3] - 2023-06-07
+## [1.0.0] - 2023-06-08
 
-Remembered to include `py.typed` in the package, and fixed a bug with the
-`escape_format` function. Furthermore, identified a major bug with chained
-escapes, which will be fixed in the next major update as it may require breaking
-changes.
+Completely overhauled the `escapyde.ansi.AnsiEscape` class. This release breaks
+backwards compatibility with manual use of the class, however use of the
+provided colour shortcuts is not affected. `README.md` has also been updated.
 
 ### Added
 
-- Added `py.typed` - this time for real
-- Added unit tests
+- Added support for chaining formatting options
+- Added new validators
+- Added new examples to `README.md`, with screenshots
+- New unit tests
+- `SECURITY.md`
 
 ### Changed
 
 - Updated dependencies
+- Moved screenshots to an asset directory
+- `escapyde.ansi.AnsiEscape` now works a lot differently
 
 ### Fixed
 
-- Fixed a bug where `escape_format` was forcing any replaced substrings to be
-  lowercase. The casing in the output now matches the input.
+- Fixed chaining escape sequences
 
 -->
+
+_______________________________________________________________________________
+
+## [1.0.0] - 2023-06-08
+
+Completely overhauled the `escapyde.ansi.AnsiEscape` class. This release breaks
+backwards compatibility with manual use of the class, however use of the
+provided colour shortcuts is not affected. `README.md` has also been updated.
+
+### Added
+
+- Added support for chaining formatting options
+- Added new validators
+- Added new examples to `README.md`, with screenshots
+- New unit tests
+- `SECURITY.md`
+
+### Changed
+
+- Updated dependencies
+- Moved screenshots to an asset directory
+- `escapyde.ansi.AnsiEscape` now works a lot differently
+
+### Fixed
+
+- Fixed chaining escape sequences
 
 _______________________________________________________________________________
 
