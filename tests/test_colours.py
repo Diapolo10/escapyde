@@ -1,6 +1,6 @@
 """Tests colours"""
 
-import pytest
+from __future__ import annotations
 
 from escapyde.colours import BBLUE, BGREEN, BRED, FBLUE, FGREEN, FRED
 

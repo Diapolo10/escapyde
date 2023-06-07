@@ -10,11 +10,11 @@ def red_foreground_example_text() -> list[tuple[str, str]]:
     return [
         (
             "Hello, world!",
-            "\x1b[0;31mHello, world!\x1b[0m",
+            "\x1b[31;49mHello, world!\x1b[0m",
         ),
         (
             "I'm really feeling it!",
-            "\x1b[0;31mI'm really feeling it!\x1b[0m",
+            "\x1b[31;49mI'm really feeling it!\x1b[0m",
         ),
     ]
 
@@ -26,11 +26,11 @@ def green_foreground_example_text() -> list[tuple[str, str]]:
     return [
         (
             "Hello, world!",
-            "\x1b[0;32mHello, world!\x1b[0m",
+            "\x1b[32;49mHello, world!\x1b[0m",
         ),
         (
             "I'm really feeling it!",
-            "\x1b[0;32mI'm really feeling it!\x1b[0m",
+            "\x1b[32;49mI'm really feeling it!\x1b[0m",
         ),
     ]
 
@@ -42,11 +42,11 @@ def blue_foreground_example_text() -> list[tuple[str, str]]:
     return [
         (
             "Hello, world!",
-            "\x1b[0;34mHello, world!\x1b[0m",
+            "\x1b[34;49mHello, world!\x1b[0m",
         ),
         (
             "I'm really feeling it!",
-            "\x1b[0;34mI'm really feeling it!\x1b[0m",
+            "\x1b[34;49mI'm really feeling it!\x1b[0m",
         ),
     ]
 
@@ -58,11 +58,11 @@ def red_background_example_text() -> list[tuple[str, str]]:
     return [
         (
             "Hello, world!",
-            "\x1b[0;41;0mHello, world!\x1b[0m",
+            "\x1b[39;41mHello, world!\x1b[0m",
         ),
         (
             "I'm really feeling it!",
-            "\x1b[0;41;0mI'm really feeling it!\x1b[0m",
+            "\x1b[39;41mI'm really feeling it!\x1b[0m",
         ),
     ]
 
@@ -74,11 +74,11 @@ def green_background_example_text() -> list[tuple[str, str]]:
     return [
         (
             "Hello, world!",
-            "\x1b[0;42;0mHello, world!\x1b[0m",
+            "\x1b[39;42mHello, world!\x1b[0m",
         ),
         (
             "I'm really feeling it!",
-            "\x1b[0;42;0mI'm really feeling it!\x1b[0m",
+            "\x1b[39;42mI'm really feeling it!\x1b[0m",
         ),
     ]
 
@@ -90,10 +90,10 @@ def blue_background_example_text() -> list[tuple[str, str]]:
     return [
         (
             "Hello, world!",
-            "\x1b[0;44;0mHello, world!\x1b[0m",
+            "\x1b[39;44mHello, world!\x1b[0m",
         ),
         (
             "I'm really feeling it!",
-            "\x1b[0;44;0mI'm really feeling it!\x1b[0m",
+            "\x1b[39;44mI'm really feeling it!\x1b[0m",
         ),
     ]
