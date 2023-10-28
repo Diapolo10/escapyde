@@ -1,12 +1,11 @@
-"""Unit test fixtures"""
+"""Unit test fixtures."""
 
 import pytest
 
 
 @pytest.fixture()
 def red_foreground_example_text() -> list[tuple[str, str]]:
-    """Returns a list of tuples containing a string and an expected result"""
-
+    """Return a list of tuples containing a string and an expected result."""
     messages = (
         "Hello, world!",
         "I'm really feeling it!",
@@ -23,8 +22,7 @@ def red_foreground_example_text() -> list[tuple[str, str]]:
 
 @pytest.fixture()
 def green_foreground_example_text() -> list[tuple[str, str]]:
-    """Returns a list of tuples containing a string and an expected result"""
-
+    """Return a list of tuples containing a string and an expected result."""
     messages = (
         "Tempus edax rerum.",
         "Time, the devourer of all things.",
@@ -41,8 +39,7 @@ def green_foreground_example_text() -> list[tuple[str, str]]:
 
 @pytest.fixture()
 def blue_foreground_example_text() -> list[tuple[str, str]]:
-    """Returns a list of tuples containing a string and an expected result"""
-
+    """Return a list of tuples containing a string and an expected result."""
     messages = (
         "Oderint dum metuant.",
         "Let them hate so long as they fear.",
@@ -59,8 +56,7 @@ def blue_foreground_example_text() -> list[tuple[str, str]]:
 
 @pytest.fixture()
 def red_background_example_text() -> list[tuple[str, str]]:
-    """Returns a list of tuples containing a string and an expected result"""
-
+    """Return a list of tuples containing a string and an expected result."""
     messages = (
         "Sic semper tyrannis.",
         "Thus always to tyrants.",
@@ -77,8 +73,7 @@ def red_background_example_text() -> list[tuple[str, str]]:
 
 @pytest.fixture()
 def green_background_example_text() -> list[tuple[str, str]]:
-    """Returns a list of tuples containing a string and an expected result"""
-
+    """Return a list of tuples containing a string and an expected result."""
     messages = (
         "Vincit qui se vincit.",
         "He conquers who conquers himself.",
@@ -95,8 +90,7 @@ def green_background_example_text() -> list[tuple[str, str]]:
 
 @pytest.fixture()
 def blue_background_example_text() -> list[tuple[str, str]]:
-    """Returns a list of tuples containing a string and an expected result"""
-
+    """Return a list of tuples containing a string and an expected result."""
     messages = (
         "Astra inclinant, sed non obligant.",
         "The stars incline us, they do not bind us.",

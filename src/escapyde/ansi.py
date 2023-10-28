@@ -1,4 +1,4 @@
-"""Main ANSI Escape sequence class"""
+"""Main ANSI Escape sequence class."""
 
 from __future__ import annotations
 
@@ -21,33 +21,38 @@ __all__ = ('AnsiEscape', 'escape_format')
 
 
 class AnsiEscape:
-    """Wrapper for ANSI escape sequences that makes use of operators as syntactic sugar"""
+    """Wrapper for ANSI escape sequences that makes use of operators as syntactic sugar."""
 
     def __init__(self: AnsiEscape,
                  foreground_colour: int | Sequence[int] = DEFAULT_FOREGROUND_COLOUR,
                  background_colour: int | Sequence[int] = DEFAULT_BACKGROUND_COLOUR,
                  string: str | None = None) -> None:
-
+        """AnsiEscape instance."""
         if not valid_foreground_colour(foreground_colour):
-            raise ValueError("Invalid foreground colour value")
+            msg = 'Invalid foreground colour value'
+            raise ValueError(msg)
         if not valid_background_colour(background_colour):
-            raise ValueError("Invalid background colour value")
+            msg = 'Invalid background colour value'
+            raise ValueError(msg)
 
         self._foreground_colour = foreground_colour
         self._background_colour = background_colour
         self._string = string
 
     def __str__(self: AnsiEscape) -> str:
+        """Sequence as string."""
         if self.string:
             return f"{self.sequence}{self.string}{ANSI_RESET_SEQUENCE}"
 
         return ""
 
     def __repr__(self: AnsiEscape) -> str:
+        """Sequence string representation."""
         state = f'{self.foreground_colour=}, {self.background_colour=}, {self.string=}'
         return f'{self.__class__.__name__}({state})'
 
     def __or__(self: AnsiEscape, other: Any) -> AnsiEscape:
+        """Chain operands."""
         if isinstance(other, AnsiEscape):
             foreground_colour = self.foreground_colour
             background_colour = self.background_colour
@@ -78,10 +83,12 @@ class AnsiEscape:
         )
 
     def __ror__(self: AnsiEscape, other: Any) -> AnsiEscape:
+        """Chain operands."""
         return self | other
 
     @property
     def sequence(self: AnsiEscape) -> str:
+        """Handle the internal sequence."""
         foreground_colour: int | Sequence[int] | str = self.foreground_colour
         background_colour: int | Sequence[int] | str = self.background_colour
 
@@ -97,25 +104,29 @@ class AnsiEscape:
 
     @property
     def foreground_colour(self: AnsiEscape) -> int | Sequence[int]:
+        """Foreground colour."""
         return self._foreground_colour
 
     @property
     def background_colour(self: AnsiEscape) -> int | Sequence[int]:
+        """Background colour."""
         return self._background_colour
 
     @property
     def string(self: AnsiEscape) -> str | None:
+        """Wrapped string."""
         return self._string
 
 
 def escape_format(string: str, escape_map: dict[str, AnsiEscape], case_sensitive: bool = False) -> str:
-    """
-    Maps a dictionary of substrings => escape sequences to the given string,
-    returning a new string with the sequences applied to all
+    r"""
+    Map a dictionary of substrings => escape sequences to the given string.
+
+    Returns a new string with the sequences applied to all
     found substrings.
 
     Example:
-
+    -------
     import escapyde as esc
 
     COLOURS = {
@@ -129,14 +140,15 @@ def escape_format(string: str, escape_map: dict[str, AnsiEscape], case_sensitive
         'black': esc.FBLACK,
     }
 
-    text = \"\"\"Hello, red world! The sun is bright yellow, and the sky cyan blue.
-    Green, lush fields are all around us.\"\"\"
+    text = (
+        "Hello, red world! The sun is bright yellow, and the sky cyan blue.\n"
+        "Green, lush fields are all around us."
+    )
 
     print(esc.escape_format(text, COLOURS))  # Would print all mapped words in their respective colours
 
     Inspired by: https://www.reddit.com/r/learnpython/comments/rvcg0l/print_colour_in_terminal/hr73v3f/
     """
-
     lines = string.splitlines()
     for line_idx, line in enumerate(lines):
 

@@ -1,4 +1,4 @@
-"""Sequences for colours and text formatting"""
+"""Sequences for colours and text formatting."""
 
 from __future__ import annotations
 
