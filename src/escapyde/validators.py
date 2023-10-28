@@ -1,4 +1,4 @@
-"""Validator functions"""
+"""Validator functions."""
 
 from __future__ import annotations
 
@@ -8,8 +8,7 @@ from escapyde import config
 
 
 def valid_foreground_colour(value: int | Sequence[int]) -> bool:
-    """Validates ANSI escape foreground values"""
-
+    """Validate ANSI escape foreground values."""
     if isinstance(value, Sequence):
         return valid_rgb_value(value)
 
@@ -20,8 +19,7 @@ def valid_foreground_colour(value: int | Sequence[int]) -> bool:
 
 
 def valid_background_colour(value: int | Sequence[int]) -> bool:
-    """Validates ANSI escape background values"""
-
+    """Validate ANSI escape background values."""
     if isinstance(value, Sequence):
         return valid_rgb_value(value)
 
@@ -32,8 +30,7 @@ def valid_background_colour(value: int | Sequence[int]) -> bool:
 
 
 def valid_rgb_value(value: Sequence[int]) -> bool:
-    """Validates RGB literals"""
-
+    """Validate RGB literals."""
     return (
         len(value) == config.VALID_RGB_SEQUENCE_LENGTH
         and max(value) <= config.MAX_RGB_VALUE

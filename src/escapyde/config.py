@@ -1,4 +1,4 @@
-"""Constants and such"""
+"""Configuration."""
 
 ANSI_RESET_SEQUENCE: str = '\033[0m'
 

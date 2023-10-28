@@ -1,4 +1,4 @@
-"""Test ANSI escapes"""
+"""Test ANSI escapes."""
 
 from __future__ import annotations
 
@@ -7,8 +7,7 @@ from escapyde.colours import BCYAN, FBLUE, FCYAN, FGREEN, FRED, FYELLOW
 
 
 def test_escape_format_valid_case_insensitive():
-    """Tests the happy path"""
-
+    """Test the happy path."""
     colours = {
         'red': FRED,
         'green': FGREEN,
@@ -35,8 +34,7 @@ def test_escape_format_valid_case_insensitive():
 
 
 def test_escape_format_valid_case_sensitive():
-    """Tests the happy path"""
-
+    """Test the happy path."""
     colours = {
         'red': FRED,
         'green': FGREEN,
@@ -63,8 +61,7 @@ def test_escape_format_valid_case_sensitive():
 
 
 def test_mixed_foreground_background():
-    """Tests mixing foreground and background colours"""
-
+    """Test mixing foreground and background colours."""
     foreground_colour = FRED
     background_colour = BCYAN
     mixed_colour = foreground_colour | background_colour
@@ -81,8 +78,7 @@ def test_mixed_foreground_background():
 
 
 def test_custom_colour():
-    """Tests support for custom colours"""
-
+    """Test support for custom colours."""
     gold = AnsiEscape(foreground_colour=(0xDB, 0xAC, 0x34))
     white_gold = AnsiEscape(foreground_colour=37, background_colour=(0xDB, 0xAC, 0x34))
 

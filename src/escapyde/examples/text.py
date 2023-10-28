@@ -1,4 +1,4 @@
-"""Example text snippets"""
+"""Example text snippets."""
 
 SKULL = """
 ███████████████████████████
