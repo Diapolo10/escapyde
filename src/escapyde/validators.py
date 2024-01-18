@@ -12,7 +12,7 @@ def valid_foreground_colour(value: int | Sequence[int]) -> bool:
     if isinstance(value, Sequence):
         return valid_rgb_value(value)
 
-    if config.MAX_FOREGROUND_COLOUR_LITERAL + 60 < value:
+    if value > config.MAX_FOREGROUND_COLOUR_LITERAL + 60:
         return False
 
     return config.MIN_FOREGROUND_COLOUR_LITERAL <= value % 60 <= config.MAX_FOREGROUND_COLOUR_LITERAL
@@ -23,7 +23,7 @@ def valid_background_colour(value: int | Sequence[int]) -> bool:
     if isinstance(value, Sequence):
         return valid_rgb_value(value)
 
-    if config.MAX_BACKGROUND_COLOUR_LITERAL + 60 < value:
+    if value > config.MAX_BACKGROUND_COLOUR_LITERAL + 60:
         return False
 
     return config.MIN_BACKGROUND_COLOUR_LITERAL <= value % 60 <= config.MAX_BACKGROUND_COLOUR_LITERAL
