@@ -148,6 +148,7 @@ def escape_format(string: str, escape_map: dict[str, AnsiEscape], case_sensitive
     print(esc.escape_format(text, COLOURS))  # Would print all mapped words in their respective colours
 
     Inspired by: https://www.reddit.com/r/learnpython/comments/rvcg0l/print_colour_in_terminal/hr73v3f/
+
     """
     lines = string.splitlines()
     for line_idx, line in enumerate(lines):
