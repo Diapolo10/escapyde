@@ -3,7 +3,7 @@
 import pytest
 
 
-@pytest.fixture()
+@pytest.fixture
 def red_foreground_example_text() -> list[tuple[str, str]]:
     """Return a list of tuples containing a string and an expected result."""
     messages = (
@@ -20,7 +20,7 @@ def red_foreground_example_text() -> list[tuple[str, str]]:
     ]
 
 
-@pytest.fixture()
+@pytest.fixture
 def green_foreground_example_text() -> list[tuple[str, str]]:
     """Return a list of tuples containing a string and an expected result."""
     messages = (
@@ -37,7 +37,7 @@ def green_foreground_example_text() -> list[tuple[str, str]]:
     ]
 
 
-@pytest.fixture()
+@pytest.fixture
 def blue_foreground_example_text() -> list[tuple[str, str]]:
     """Return a list of tuples containing a string and an expected result."""
     messages = (
@@ -54,7 +54,7 @@ def blue_foreground_example_text() -> list[tuple[str, str]]:
     ]
 
 
-@pytest.fixture()
+@pytest.fixture
 def red_background_example_text() -> list[tuple[str, str]]:
     """Return a list of tuples containing a string and an expected result."""
     messages = (
@@ -71,7 +71,7 @@ def red_background_example_text() -> list[tuple[str, str]]:
     ]
 
 
-@pytest.fixture()
+@pytest.fixture
 def green_background_example_text() -> list[tuple[str, str]]:
     """Return a list of tuples containing a string and an expected result."""
     messages = (
@@ -88,7 +88,7 @@ def green_background_example_text() -> list[tuple[str, str]]:
     ]
 
 
-@pytest.fixture()
+@pytest.fixture
 def blue_background_example_text() -> list[tuple[str, str]]:
     """Return a list of tuples containing a string and an expected result."""
     messages = (
