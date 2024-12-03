@@ -10,11 +10,23 @@ if TYPE_CHECKING:
 from escapyde.ansi import AnsiEscape
 
 __all__ = (
-    'FBLACK', 'FRED', 'FGREEN', 'FYELLOW',
-    'FBLUE', 'FMAGENTA', 'FCYAN', 'FWHITE',
-    'BBLACK', 'BRED', 'BGREEN', 'BYELLOW',
-    'BBLUE', 'BMAGENTA', 'BCYAN', 'BWHITE',
+    'BBLACK',
+    'BBLUE',
+    'BCYAN',
+    'BGREEN',
+    'BMAGENTA',
+    'BRED',
+    'BWHITE',
+    'BYELLOW',
     'CLEAR',
+    'FBLACK',
+    'FBLUE',
+    'FCYAN',
+    'FGREEN',
+    'FMAGENTA',
+    'FRED',
+    'FWHITE',
+    'FYELLOW',
 )
 
 sequence_table: dict[str, int | Sequence[int]] = {
