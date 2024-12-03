@@ -49,15 +49,25 @@ Lorem Ipsum dolor sit amet.
 <!--
 _______________________________________________________________________________
 
-## [1.0.1] - 2023-06-08
+## [1.0.2] - 2024-12-03
 
-Fixed an issue with the Ruff workflow.
+Moved py.typed to the correct location.
 
 ### Fixed
 
-- Fixed Ruff running on tag releases
+- Fixed type annotation support when imported.
 
 -->
+
+_______________________________________________________________________________
+
+## [1.0.2] - 2024-12-03
+
+Moved py.typed to the correct location.
+
+### Fixed
+
+- Fixed type annotation support when imported.
 
 _______________________________________________________________________________
 

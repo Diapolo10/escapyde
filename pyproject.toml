@@ -153,7 +153,7 @@ select = [
     "SLOT", # __slots__
     "T10",  # Debugger
     "T20",  # Print
-    "TCH",  # Type checking
+    "TC",  # Type checking
     "TID",  # Tidy imports
     "TRY",  # Exception handling
     "UP",   # Pyupgrade
