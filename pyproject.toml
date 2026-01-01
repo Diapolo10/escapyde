@@ -58,7 +58,7 @@ classifiers = [
 
 
 [tool.poetry.dependencies]
-python = "^3.9.0"
+python = "^3.10.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -70,7 +70,7 @@ optional = true
 
 
 [tool.poetry.group.linters.dependencies]
-ruff = ">=0.8.1,<0.15.0"
+ruff = ">=0.14.10"
 
 
 [tool.poetry.group.tests]
@@ -78,8 +78,8 @@ optional = true
 
 
 [tool.poetry.group.tests.dependencies]
-pytest = "^8.3.4"
-pytest-cov = ">=6,<8"
+pytest = "^9.0.2"
+pytest-cov = ">=7.0.0"
 tox = "^4.23.2"
 tox-gh-actions = "^3.2.0"
 
