@@ -1,28 +1,16 @@
 [build-system]
-requires = ["poetry-core>=1.2.0", "wheel",]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling", "uv-dynamic-versioning>=0.7.0"]
+build-backend = "hatchling.build"
 
-
-[tool.poetry]
+[project]
 name = "escapyde"
-version = "1.0.2"
+dynamic = ["version"]
 description = "Yet another ANSI escape sequence library for Python - now modernised!"
-
-packages = [
-    { include = "escapyde", from = "src" },
-]
-
-authors = ["Lari Liuhamo <lari.liuhamo+pypi@gmail.com>",]
-maintainers = ["Lari Liuhamo <lari.liuhamo+pypi@gmail.com>",]
-
-include = ["CHANGELOG.md", "LICENSE", "py.typed",]
-license = "MIT"
+authors = [{ name = "Lari Liuhamo", email = "lari.liuhamo+pypi@gmail.com" }]
+requires-python = ">=3.11"
 readme = "README.md"
-
-homepage = "https://pypi.org/project/escapyde/"
-repository = "https://github.com/Diapolo10/escapyde"
-documentation = "https://github.com/Diapolo10/escapyde/tree/main/docs"
-
+license = "MIT"
+maintainers = [{ name = "Lari Liuhamo", email = "lari.liuhamo+pypi@gmail.com" }]
 keywords = [
     "ansi",
     "console",
@@ -39,15 +27,12 @@ classifiers = [
     "Intended Audience :: Information Technology",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Programming Language :: Python :: Implementation :: CPython",
-    "Programming Language :: Python :: Implementation :: IronPython",
-    "Programming Language :: Python :: Implementation :: Jython",
-    "Programming Language :: Python :: Implementation :: MicroPython",
     "Programming Language :: Python :: Implementation :: PyPy",
-    "Programming Language :: Python :: Implementation :: Stackless",
     "Topic :: Artistic Software",
     "Topic :: Communications",
     "Topic :: Software Development :: Libraries",
@@ -56,170 +41,131 @@ classifiers = [
     "Typing :: Typed",
 ]
 
-
-[tool.poetry.dependencies]
-python = "^3.10.0"
-
-
-[tool.poetry.group.dev.dependencies]
-mypy = ">=1.13,<3.0"
-
-
-[tool.poetry.group.linters]
-optional = true
-
-
-[tool.poetry.group.linters.dependencies]
-ruff = ">=0.14.10"
-
-
-[tool.poetry.group.tests]
-optional = true
-
-
-[tool.poetry.group.tests.dependencies]
-pytest = "^9.0.2"
-pytest-cov = ">=7.0.0"
-tox = "^4.23.2"
-tox-gh-actions = "^3.2.0"
-
-
-[tool.poetry.urls]
+[project.urls]
+Homepage = "https://pypi.org/project/escapyde/"
+Repository = "https://github.com/Diapolo10/escapyde"
+Documentation = "https://github.com/Diapolo10/escapyde/tree/main/docs"
 "Source code" = "https://github.com/Diapolo10/escapyde"
-"Tracker" = "https://github.com/Diapolo10/escapyde/issues"
-"Changelog" = "https://github.com/Diapolo10/escapyde/blob/main/CHANGELOG.md"
+Tracker = "https://github.com/Diapolo10/escapyde/issues"
+Changelog = "https://github.com/Diapolo10/escapyde/blob/main/CHANGELOG.md"
 
-
-[tool.pytest.ini_options]
-minversion = "6.0"
-addopts = """
---doctest-modules \
---cov=./ \
---cov-append \
---cov-report html:tests/reports/coverage-html \
---cov-report xml:tests/reports/coverage.xml \
---ignore=docs/
-"""
-testpaths = [
-    "tests",
+[dependency-groups]
+dev = [
+    "mypy>=1.13",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.14.10",
+    "tox>=4.23.2",
+    "tox-gh-actions>=3.2.0",
 ]
 
+[tool.coverage.run]
+branch = true
+relative_files = true
+omit = [".tox/*", "tests/*"]
+
+[tool.coverage.report]
+exclude_also = [
+    "pragma: not covered",
+    "@overload",
+    "except importlib.metadata.PackageNotFoundError:",
+]
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.mypy]
+exclude = ["tests/"]
+exclude_gitignore = true
+strict = true
+strict_equality = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unused_ignores = true
+
+[tool.pytest]
+minversion = "9.0"
+addopts = [
+    "--doctest-modules",
+    "--cov=./",
+    "--cov-append",
+    "--cov-fail-under=80",
+    "--cov-report=html:tests/reports/coverage-html",
+    "--cov-report=term-missing:skip-covered",
+    "--cov-report=xml:tests/reports/coverage.xml",
+    "--ignore=docs/",
+]
+testpaths = ["tests"]
 
 [tool.ruff]
-select = [
-    "A",    # Builtins
-    "ANN",  # Annotations
-    "ARG",  # Unused arguments
-    "B",    # Bugbear
-    "BLE",  # Blind except
-    "C4",   # Comprehensions
-    "C90",  # mccabe
-    "COM",  # Commas
-    "D1",   # Undocumented public elements
-    "D2",   # Docstring conventions
-    "D3",   # Triple double quotes
-    "D4",   # Docstring text format
-    "DTZ",  # Datetimes
-    "EM",   # Error messages
-    "ERA",  # Commented-out code
-    "EXE",  # Executable
-    "F",    # Pyflakes
-    "FA",   # __future__ annotations
-    "FLY",  # F-strings
-    # "FURB", # Refurb
-    "G",    # Logging format
-    "I",    # Isort
-    "ICN",  # Import conventions
-    "INP",  # Disallow PEP-420 (Implicit namespace packages)
-    "INT",  # gettext
-    "ISC",  # Implicit str concat
-    # "LOG",  # Logging
-    "N",    # PEP-8 Naming
-    "NPY",  # Numpy
-    "PERF", # Unnecessary performance costs
-    "PGH",  # Pygrep hooks
-    "PIE",  # Unnecessary code
-    "PL",   # Pylint
-    "PT",   # Pytest
-    "PTH",  # Use Pathlib
-    "PYI",  # Stub files
-    "Q",    # Quotes
-    "RET",  # Return
-    "RUF",  # Ruff
-    "RSE",  # Raise
-    "S",    # Bandit
-    "SIM",  # Code simplification
-    "SLF",  # Private member access
-    "SLOT", # __slots__
-    "T10",  # Debugger
-    "T20",  # Print
-    "TC",  # Type checking
-    "TID",  # Tidy imports
-    "TRY",  # Exception handling
-    "UP",   # Pyupgrade
-    "W",    # Warnings
-    "YTT",  # sys.version
-]
-ignore = [
+lint.select = ["ALL"]
+lint.ignore = [
+    "COM812",  # Missing trailing comma (disabled due to formatter conflict)
     "D203",    # One blank line before class docstring
     "D212",    # Multi-line summary first line
+    "ISC001",  # Single-line implicit string concatenation (disabled due to formatter conflict)
     "PLR0913", # Too many arguments
     "Q000",    # Single quotes found but double quotes preferred
 ]
-ignore-init-module-imports = true
 line-length = 120
-# preview = true
 show-fixes = true
-src = ["src",]
-target-version = "py39"
-
 
 [tool.ruff.flake8-quotes]
 docstring-quotes = "double"
 multiline-quotes = "double"
 
-
 [tool.ruff.mccabe]
-max-complexity = 10
-
+max-complexity = 15
 
 [tool.ruff.per-file-ignores]
 # https://beta.ruff.rs/docs/rules/
-"__init__.py" = ["F401", "F403", "F405",]
-"tests/*" = ["ANN", "ARG", "INP001", "S101",]
-"**/ansi.py" = ["ANN401",]
-
+"__init__.py" = ["F401", "F403", "F405", "PGH003"]
+"tests/*" = ["ANN", "ARG", "INP001", "PLR2004", "S101"]
+"**/ansi.py" = ["ANN401"]
 
 [tool.ruff.pylint]
 max-args = 15
 max-branches = 20
-max-returns = 10
+max-returns = 15
 max-statements = 80
-
 
 [tool.ruff.flake8-tidy-imports]
 ban-relative-imports = "all"
 
-
 [tool.tox]
 legacy_tox_ini = """
 [tox]
-envlist = py39, py310, py311, py312, pypy3
-isolated_build = True
+envlist = py3{11, 12, 13, 14}, pypy3
+skip_missing_interpreters = true
 
 [gh-actions]
 python =
-    3.9: py39
-    3.10: py310
     3.11: py311
     3.12: py312
-    pypy-3.10: pypy3
+    3.13: py313
+    3.14: py314
+    pypy-3.11: pypy3
 
 [testenv]
-passenv = GITHUB_*
-allowlist_externals = poetry
+passenv =
+    GITHUB_*
+    FORCE_COLOR
+allowlist_externals = uv
 
 commands =
-    poetry run pytest
-    poetry run coverage report
+    uv run --active --frozen pytest
+    uv run --active --frozen coverage report
 """
+
+[tool.uv]
+cache-keys = [
+    { file = "pyproject.toml" },
+    { git = { commit = true, tags = true } },
+]
+constraint-dependencies = ["pygments>=2.20.0"]
+
+[tool.uv-dynamic-versioning]
+bump = true
+fallback-version = "0.0.0"
+style = "pep440"
+vcs = "git"
