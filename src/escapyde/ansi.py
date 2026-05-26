@@ -17,22 +17,24 @@ from escapyde.validators import (
     valid_foreground_colour,
 )
 
-__all__ = ('AnsiEscape', 'escape_format')
+__all__ = ("AnsiEscape", "escape_format")
 
 
 class AnsiEscape:
     """Wrapper for ANSI escape sequences that makes use of operators as syntactic sugar."""
 
-    def __init__(self: AnsiEscape,
-                 foreground_colour: int | Sequence[int] = DEFAULT_FOREGROUND_COLOUR,
-                 background_colour: int | Sequence[int] = DEFAULT_BACKGROUND_COLOUR,
-                 string: str | None = None) -> None:
+    def __init__(
+        self: AnsiEscape,
+        foreground_colour: int | Sequence[int] = DEFAULT_FOREGROUND_COLOUR,
+        background_colour: int | Sequence[int] = DEFAULT_BACKGROUND_COLOUR,
+        string: str | None = None,
+    ) -> None:
         """AnsiEscape instance."""
         if not valid_foreground_colour(foreground_colour):
-            msg = 'Invalid foreground colour value'
+            msg = "Invalid foreground colour value"
             raise ValueError(msg)
         if not valid_background_colour(background_colour):
-            msg = 'Invalid background colour value'
+            msg = "Invalid background colour value"
             raise ValueError(msg)
 
         self._foreground_colour = foreground_colour
@@ -48,8 +50,8 @@ class AnsiEscape:
 
     def __repr__(self: AnsiEscape) -> str:
         """Sequence string representation."""
-        state = f'{self.foreground_colour=}, {self.background_colour=}, {self.string=}'
-        return f'{self.__class__.__name__}({state})'
+        state = f"{self.foreground_colour=}, {self.background_colour=}, {self.string=}"
+        return f"{self.__class__.__name__}({state})"
 
     def __or__(self: AnsiEscape, other: Any) -> AnsiEscape:
         """Chain operands."""
@@ -84,7 +86,7 @@ class AnsiEscape:
 
     def __ror__(self: AnsiEscape, other: Any) -> AnsiEscape:
         """Chain operands."""
-        return self | other
+        return self.__or__(other)
 
     @property
     def sequence(self: AnsiEscape) -> str:
@@ -94,11 +96,11 @@ class AnsiEscape:
 
         if isinstance(foreground_colour, Sequence):
             # Foreground colour is in RGB values
-            foreground_colour = f'{USE_RGB_FOREGROUND};2;' + ';'.join(str(num) for num in foreground_colour)
+            foreground_colour = f"{USE_RGB_FOREGROUND};2;" + ";".join(str(num) for num in foreground_colour)
 
         if isinstance(background_colour, Sequence):
             # Background colour is in RGB values
-            background_colour = f'{USE_RGB_BACKGROUND};2;' + ';'.join(str(num) for num in background_colour)
+            background_colour = f"{USE_RGB_BACKGROUND};2;" + ";".join(str(num) for num in background_colour)
 
         return f"\033[{foreground_colour};{background_colour}m"
 
@@ -118,7 +120,7 @@ class AnsiEscape:
         return self._string
 
 
-def escape_format(string: str, escape_map: dict[str, AnsiEscape], case_sensitive: bool = False) -> str:
+def escape_format(string: str, escape_map: dict[str, AnsiEscape], *, case_sensitive: bool = False) -> str:
     r"""
     Map a dictionary of substrings => escape sequences to the given string.
 
@@ -152,12 +154,9 @@ def escape_format(string: str, escape_map: dict[str, AnsiEscape], case_sensitive
     """
     lines = string.splitlines()
     for line_idx, line in enumerate(lines):
-
-        words = line.split(' ')
+        words = line.split(" ")
         for substring, escape in escape_map.items():
-
             for idx, word in enumerate(words):
-
                 temp_word = word
                 temp_substring = substring
 
@@ -166,8 +165,8 @@ def escape_format(string: str, escape_map: dict[str, AnsiEscape], case_sensitive
                     temp_word = temp_word.lower()
 
                 if temp_word.startswith(temp_substring):
-                    words[idx] = f'{escape | word[:len(substring)]}{word[len(substring):]}'
+                    words[idx] = f"{escape | word[: len(substring)]}{word[len(substring) :]}"
 
-        lines[line_idx] = ' '.join(words)
+        lines[line_idx] = " ".join(words)
 
-    return '\n'.join(lines)
+    return "\n".join(lines)
